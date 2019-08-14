@@ -19,7 +19,7 @@ void createSA(string str){
         order[lvl][i]=str[i]-'a';
     }
     lvl=1;
-    for(lvl=1,cnt=2;cnt<n;cnt*=2,lvl++){
+    for(lvl=1,cnt=2;cnt<2*n;cnt*=2,lvl++){
         vector<vector<ll> > tmp(n,vector<ll>(3));
         for(ll j=0;j<n;j++){
             tmp[j][0]=order[lvl-1][j];
@@ -43,7 +43,7 @@ ll LCP(ll sfx1,ll sfx2){
         return n-sfx1;
     }
     for(ll i=lvl;i>=0;i--){
-        if(order[i][sfx1]==order[i][sfx2]){
+        if(sfx1<n && sfx2<n && order[i][sfx1]==order[i][sfx2]){
             ans+=(1<<i);
             sfx1+=(1<<i);
             sfx2+=(1<<i);
@@ -57,7 +57,7 @@ int main() {
     string str = "banana";
     createSA(str);
     int n=str.length();
-    for(ll i=0,cnt=1;cnt<n;cnt*=2,i++){
+    for(ll i=0,cnt=1;cnt<2*n;cnt*=2,i++){
         for(ll j=0;j<n;j++){
             cout<<order[i][j]<<" ";
         }
