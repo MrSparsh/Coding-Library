@@ -33,7 +33,7 @@
     	for(int i=2; i*i<=MAX; i++) {
     		if(sprime[i] == i) {
     			for(int j=i*i; j<=MAX; j+=i) {
-    				sprime[j] = i;
+    				sprime[j] = min(sprime[j],i);
     			}
     		}
     	}
