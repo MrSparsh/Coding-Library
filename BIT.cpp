@@ -1,6 +1,6 @@
-#include <bits/stdc++.h>   
+#include <bits/stdc++.h>
 #define mod 1000000007
-#define pll pair<ll,ll> 
+#define pll pair<ll,ll>
 typedef long long ll;
 using namespace std;
 #define debug(x) cout<<#x<<" :: "<<x<<endl;
