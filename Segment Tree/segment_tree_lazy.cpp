@@ -8,8 +8,6 @@ using namespace std;
 #define debug3(x,y,z) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\t"<<#z<<" :: "<<z<<endl;
 #define boost ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 #define loop(x,l,n) for(ll x = l; x <= n; ++x)
-ll power(ll x, ll y) { ll res=1; x=x%mod; while(y>0){if(y & 1){res=(res*x)%mod;} y=y>>1; x=(x*x)%mod;} return res; }
-ll inv(ll x){return power(x,mod-2);}
 
 struct node{
 		ll l,r,lazy,sum;
@@ -74,11 +72,11 @@ class Seg{
 
 	ll queryHelper(ll x,ll y,ll k){
 		pushdown(k);
-    if(tree[k].l>=x && tree[k].r<=y){
-			return tree[k].sum;
-		}else if(tree[k].r<x || tree[k].l>y){
-      return 0;
-    }
+		if(tree[k].l>=x && tree[k].r<=y){
+				return tree[k].sum;
+			}else if(tree[k].r<x || tree[k].l>y){
+		return 0;
+		}
 		return queryHelper(x,y,2*k)+queryHelper(x,y,2*k+1);
 	}
 	ll query(ll x,ll y){
@@ -87,30 +85,30 @@ class Seg{
 
 
 	void printHelper(ll k){
-		cout<<tree[k].sum<<","<<tree[k].lazy<<")  ";
-    if(tree[k].l==tree[k].r){
-      return;
-    }
-    printHelper(2*k);
-    printHelper(2*k+1);
+		cout<<"("<<tree[k].sum<<","<<tree[k].lazy<<")  ";
+		if(tree[k].l==tree[k].r){
+		return;
+		}
+		printHelper(2*k);
+		printHelper(2*k+1);
 	}
-  void print(){
-    printHelper(1);
-  }
+	void print(){
+		printHelper(1);
+	}
 };
 
 int main() {
     boost;
-		int arr[]={1,3,5,7,9,11};
+	int arr[]={1,3,5,7,9,11};
     Seg tree(6);
-		for(int i=0;i<6;i++){
-			tree.update(i,i,arr[i]);
-		}
-		tree.print();cout<<endl;
-		cout<<tree.query(1,3)<<endl;
-		tree.update(1,5,10);
-		tree.print();cout<<endl;
-		cout<<tree.query(1,3)<<endl;
+	for(int i=0;i<6;i++){
+		tree.update(i,i,arr[i]);
+	}
+	tree.print();cout<<endl;
+	cout<<tree.query(1,3)<<endl;
+	tree.update(1,5,10);
+	tree.print();cout<<endl;
+	cout<<tree.query(1,3)<<endl;
     tree.print();cout<<endl;
 
 }
