@@ -14,7 +14,7 @@ vl vis;
 ll n,m;
 
 void inputGraph(ll n, ll m){
-	G.resize(n+1);
+	G.clear(); G.resize(n+1);
 	ll i, u, v;
 	loop(i,0,m-1){
 		cin>>u>>v;
