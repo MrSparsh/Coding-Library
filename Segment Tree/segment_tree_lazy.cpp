@@ -1,14 +1,3 @@
-#include <bits/stdc++.h>
-#define mod 1000000007
-#define pll pair<ll,ll>
-typedef long long ll;
-using namespace std;
-#define debug(x) cout<<#x<<" :: "<<x<<endl;
-#define debug2(x,y) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<endl;
-#define debug3(x,y,z) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\t"<<#z<<" :: "<<z<<endl;
-#define boost ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
-#define loop(x,l,n) for(ll x = l; x <= n; ++x)
-
 struct node{
 		ll l,r,lazy,sum;
 };
@@ -96,19 +85,3 @@ class Seg{
 		printHelper(1);
 	}
 };
-
-int main() {
-    boost;
-	int arr[]={1,3,5,7,9,11};
-    Seg tree(6);
-	for(int i=0;i<6;i++){
-		tree.update(i,i,arr[i]);
-	}
-	tree.print();cout<<endl;
-	cout<<tree.query(1,3)<<endl;
-	tree.update(1,5,10);
-	tree.print();cout<<endl;
-	cout<<tree.query(1,3)<<endl;
-    tree.print();cout<<endl;
-
-}

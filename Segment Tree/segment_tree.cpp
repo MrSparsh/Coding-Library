@@ -1,22 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-#define gc getchar_unlocked
-#define loop(i,k,n) for(ll i=k;k<n?i<=n:i>=n;k<n?i+=1:i-=1)
-#define loop2(i,k,n,diff) for(ll i=k;k<n?i<=n:i>=n;k<n?i+=diff:i-=diff)
-#define ll long long
-#define debug(x) cout<<#x<<" :: "<<x<<endl;
-#define debug2(x,y) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<endl;
-#define debug3(x,y,z) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\t"<<#z<<" :: "<<z<<endl;
-#define boost ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
-#define pb push_back
-#define mp make_pair
-#define PI 3.1415926535897932384626
-typedef pair<ll, ll>	pl;
-typedef vector<ll>		vl;
-typedef vector<pl>		vpl;
-typedef vector<vl>		vvl;
-const ll mod = 1000000007;
-
 class Seg{
   public:
 	vector<ll> tree;
@@ -82,14 +63,3 @@ class Seg{
 		cout<<endl;
 	}
 };
-
-int main() {
-    boost;
-	ll arr[]={1,3,5,7,9,11};
-    Seg tree(6,arr);
-	tree.print();
-	cout<<tree.query(1,3)<<endl;
-	tree.update(3,9);
-	tree.print();
-	return 0;
-}

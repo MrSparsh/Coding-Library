@@ -1,9 +1,6 @@
-#include <bits/stdc++.h>   
-typedef long long ll;
-using namespace std;
 
 ll n,depth[100001],len=18,anc[100001][18],q;
-vector<vector<ll> > G;
+vvl G;
 
 void dfs(ll u,ll par){
     depth[u]=depth[par]+1;
@@ -38,15 +35,4 @@ ll lca(ll u,ll v){
         }
     }
     return anc[u][0];
-}
-int main() {
-    cin>>n;
-    G.clear(),G.resize(n+1);
-    for(int i=0;i<n-1;i++){
-        ll u,v;
-        cin>>u>>v;
-        G[u].push_back(v);
-        G[v].push_back(u);
-    }
-    dfs(1,0);
 }
