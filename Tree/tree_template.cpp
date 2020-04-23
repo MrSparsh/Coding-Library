@@ -10,48 +10,40 @@ typedef long long ll; typedef pair<ll, ll> pl; typedef vector<ll> vl; typedef ve
 const ll mod = 1000000007;
 
 vvl G;
-vl vis;
-ll n,m;
-
-void inputGraph(ll n, ll m){
-	G.clear(); G.resize(n+1);
-	ll i, u, v;
-	loop(i,1,m+1){
+void input(ll n){
+	G.resize(n+1);
+	ll u, v;
+	loop(i,1,n){
 		cin>>u>>v;
 		G[u].pb(v);
 		G[v].pb(u);
 	}
 }
 
-void dfs(ll u){
+// ll par[400001];
+// void input2(ll n){
+// 	G.clear(),G.resize(n);
+// 	loop(i,1,n){
+// 		cin>>par[i];
+// 		G[par[i]].pb(i);
+// 		G[i].pb(par[i]);
+// 	}
+// }
+
+void dfs(ll u, ll par){
 	for(ll v:G[u]){
-		if (!vis[v]) continue;
-		dfs(v);
+		if (v == par) continue;
+		dfs(v, u);
 	}
 }
 
-void bfs(ll st){
-    vis.clear(); vis.resize(n+1,0);
-    queue<ll> q;
-    q.push(st);
-    vis[st]=1;
-    while(!q.empty()){
-        ll u=q.front();q.pop();
-        for(ll v:G[u]){
-            if(!vis[v]){
-                q.push(v);
-                vis[v]=1;
-            }
-        }
-    }
-}
-
-int main() {
+int main()
+{
 	boost;
 	#ifndef ONLINE_JUDGE
 		freopen("input.txt", "r", stdin);
 	#endif
 
 	
-    return 0;
+	return 0;
 }

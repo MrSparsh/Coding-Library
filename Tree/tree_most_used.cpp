@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define loop(i,k,n) for(ll i=k;i<=n;i+=1)
-#define loop2(i,k,n,diff) for(ll i=k;i<=n;i+=diff)
+#define loop(i,k,n) for(ll i=k;i<n;i+=1)
+#define loop2(i,k,n,diff) for(ll i=k;i<n;i+=diff)
 #define debug2(x,y) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<endl;
 #define debug3(x,y,z) cout<<#x<<" :: "<<x<<"\t"<<#y<<" :: "<<y<<"\t"<<#z<<" :: "<<z<<endl;
 #define boost ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
@@ -14,17 +14,17 @@ vvl G;
 void input(ll n){
 	G.resize(n+1);
 	ll u, v;
-	loop(i,1,n-1){
+	loop(i,1,n){
 		cin>>u>>v;
-		G[u-1].pb(v-1);
-		G[v-1].pb(u-1);
+		G[u].pb(v);
+		G[v].pb(u);
 	}
 }
 
 ll par[400001];
 void input2(ll n){
 	G.clear(),G.resize(n);
-	loop(i,1,n-1){
+	loop(i,1,n){
 		cin>>par[i];
 		G[par[i]].pb(i);
 		G[i].pb(par[i]);
