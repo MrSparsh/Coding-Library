@@ -11,7 +11,7 @@ const ll mod = 1000000007;
 
 vvl G;
 void input(ll n){
-	G.resize(n+1);
+	G.clear(); G.resize(n+1);
 	ll u, v;
 	loop(i,1,n){
 		cin>>u>>v;
