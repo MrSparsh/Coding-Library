@@ -1,4 +1,9 @@
-ll minP[1000001];
+// Prime Factorization in nlogn
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+ll minP[1000001];                           //minP[x] stores min prime factor of x
 void sieve(ll n) {
     
     for(ll i=2; i<=n; i++) {
@@ -14,7 +19,7 @@ void sieve(ll n) {
     }
 }
      
-void factorize(ll n) {
+void factorize(ll n) {              // To get the prime factorisation in logn
     ll sp = minP[n];
     while(n > 1) {
         ll sp = minP[n];
@@ -25,4 +30,9 @@ void factorize(ll n) {
         }
         cout<<sp<<"^"<<cnt<<" ";
     }
+}
+
+int main(){
+    sieve(1000000);
+    factorize(12);
 }

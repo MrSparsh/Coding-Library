@@ -1,3 +1,6 @@
+//The Template I use for every graph question
+// Make input.txt in the folder where you want to use it
+
 #include <bits/stdc++.h>
 using namespace std;
 #define loop(i, k, n) for (ll i = k; i < n; i += 1)
@@ -48,7 +51,7 @@ void bfs(ll st){
 
 int main() {
 	boost;
-	#ifndef ONLINE_JUDGE
+	#ifndef ONLINE_JUDGE									
 		freopen("input.txt", "r", stdin);
 	#endif
 

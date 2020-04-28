@@ -1,3 +1,5 @@
+//My template for solving general problems
+
 #include <bits/stdc++.h>
 using namespace std;
 #define loop(i, k, n) for (ll i = k; i < n; i += 1)

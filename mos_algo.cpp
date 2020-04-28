@@ -1,14 +1,14 @@
+// Mo's Algo to calclate no distinct integers in range (l,r) in n^(3/2)
+
 #include <bits/stdc++.h>
 #define ll long long
-#define pll pair<long long,long long> 
-#define boost ios::sync_with_stdio(0); cin.tie(0); cout.tie(0) 
 using namespace std;
 
-ll n,q,arr[30001],bs,mp[1000001],res[200001];
+ll n,q,arr[30001],bs,hsh[1000001],res[200001];
 ll cl=0,cr=0,ans=0;
-vector<pair<pll,int> >v;
+vector<pair<pair<ll,ll>,ll> >v;
 
-bool cmp(pair<pll,int> p1,pair<pll,int> p2){
+bool comp(pair<pair<ll,ll>,ll> p1,pair<pair<ll,ll>,ll> p2){
     if(p1.first.first/bs == p2.first.first/bs){
         return p1.first.second>p2.first.second;
     }
@@ -16,32 +16,32 @@ bool cmp(pair<pll,int> p1,pair<pll,int> p2){
 }
 
 void add(ll idx){
-    mp[arr[idx]]++;
-    if(mp[arr[idx]]==1){
+    hsh[arr[idx]]++;
+    if(hsh[arr[idx]]==1){
         ans++;
     }
 }
 
 void rem(ll idx){
-    mp[arr[idx]]--;
-    if(mp[arr[idx]]==0){
+    hsh[arr[idx]]--;
+    if(hsh[arr[idx]]==0){
         ans--;
     }
 }
 
-int main() {
+ll main() {
 	cin>>n;
 	bs=sqrt(n);
-	for(int i=0;i<n;i++){cin>>arr[i];}
+	for(ll i=0;i<n;i++){cin>>arr[i];}
 	cin>>q;
-	for(int i=0;i<q;i++){
+	for(ll i=0;i<q;i++){
 	    ll l,r;
 	    cin>>l>>r;
 	    l--,r--;
 	    v.push_back(make_pair(make_pair(l,r),i));
 	}
-	sort(v.begin(),v.end(),cmp);
-	for(int i=0;i<q;i++){
+	sort(v.begin(),v.end(),comp);
+	for(ll i=0;i<q;i++){
 	    ll nl=v[i].first.first,nr=v[i].first.second;
 	    ll qno=v[i].second;
 	    while(cl<nl){
@@ -62,7 +62,7 @@ int main() {
 	    }
 	    res[qno]=ans;
 	}
-	for(int i=0;i<q;i++){
+	for(ll i=0;i<q;i++){
 	    cout<<res[i]<<endl;
 	}
 }

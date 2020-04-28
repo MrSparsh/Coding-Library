@@ -1,3 +1,9 @@
+//Trie to store words
+
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+
 struct TrieNode{
     TrieNode* chld[26];
     bool isVal;
@@ -29,4 +35,8 @@ bool search(string &word,TrieNode* root) {
         curr=curr->chld[ch-'a'];
     }
     return curr->isVal;
+}
+
+int main(){
+    return 0;
 }

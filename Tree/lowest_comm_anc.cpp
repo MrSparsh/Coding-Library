@@ -1,6 +1,11 @@
+//To calculate the Lowest commom ancestor of two nodes 
+#include <bits/stdc++.h>  
+using namespace std;
+typedef long long ll;
+
 
 ll n,depth[100001],len=18,anc[100001][18],q;
-vvl G;
+vector<vector<ll> > G;
 
 void dfs(ll u,ll par){
     depth[u]=depth[par]+1;
@@ -35,4 +40,8 @@ ll lca(ll u,ll v){
         }
     }
     return anc[u][0];
+}
+
+int main(){
+    return 0;
 }
