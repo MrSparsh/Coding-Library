@@ -1,15 +1,11 @@
-# My-Codes
+# My Coding Library
 
-Advanced Binary Search
-Extended Eucleid
-Euler Totient
-Sieve and Segmented Sieve
-Trie
-Segment Tree
-Binary Indexed Tree
-Suffix Array
-Digit DP
-BFS/DFS
+This repo contains various frequently-used codes in competitive programming.
+These are properly commented so they will be easy to use and understand.
+
+## Happy Coding😀😀
+
+
 
 
 
