@@ -4,10 +4,10 @@
 #define ll long long
 using namespace std;
 
-struct TrieNode{
-    TrieNode* chld[26];
+struct node{
+    node* chld[26];
     bool isVal;
-    TrieNode(){
+    node(){
         for(int i=0;i<26;i++){
             chld[i]=NULL;
         }
@@ -15,19 +15,19 @@ struct TrieNode{
     }
 };
 
-void insert(string word,TrieNode* root) {
-    TrieNode* curr=root;
+void insert(string word,node* root) {
+    node* curr=root;
     for(char ch:word){
         if(curr->chld[ch-'a']==NULL){
-            curr->chld[ch-'a']=new TrieNode();
+            curr->chld[ch-'a']=new node();
         }
         curr=curr->chld[ch-'a'];
     }
     curr->isVal=true;
 }
 
-bool search(string &word,TrieNode* root) {
-    TrieNode* curr=root;
+bool search(string &word,node* root) {
+    node* curr=root;
     for(char ch:word){
         if(curr->chld[ch-'a']==NULL){
             return false;

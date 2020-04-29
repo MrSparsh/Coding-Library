@@ -11,14 +11,14 @@ using namespace std;
 typedef long long ll; typedef pair<ll, ll> pl; typedef vector<ll> vl; typedef vector<pl> vpl; typedef vector<vl> vvl; typedef vector<vpl> vvpl;
 const ll mod = 1000000007;
 
-vvl G;
+vector<vector<ll> > G;
 void input(ll n){
 	G.clear(); G.resize(n+1);
 	ll u, v;
-	loop(i,1,n){
+	for(ll i=1;i<=n-1;i++){
 		cin>>u>>v;
-		G[u].pb(v);
-		G[v].pb(u);
+		G[u].push_back(v);
+		G[v].push_back(u);
 	}
 }
 
