@@ -1,4 +1,4 @@
-//Dijikstra algo to find shortest distance from src to all nodes
+//Prims algo to find MST
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -13,43 +13,38 @@ void inputGraph(){
 	for(i=1;i<=m;i++){
 		cin>>u>>v>>w;
 		G[u].push_back({w,v});
-		G[v].push_back({w,u});
+        G[v].push_back({w,u});
 	}
 }
 
-ll dis[100001];
-void dijikstra(ll src){
-	for(int i=1;i<=n;i++){
-		dis[i]=1e18;
-	}
-	dis[src]=0;
+ll prims(ll src){
+    vector<ll> vis(n+1,0);
+    ll ans=0;
 	set<pair<ll,ll>> st;
-	st.insert({dis[src],src});
+	st.insert({0,src});
 	while(!st.empty()){
 		auto fr= *st.begin();
 		st.erase(st.begin());
+        ll w=fr.first;
 		ll u=fr.second;
+        if(vis[u]) continue;
+        else vis[u]=true;
+        ans+=w;
 		for(auto p:G[u]){
 			ll v=p.second;
-			ll w=p.first;
-			if(dis[u]+w<dis[v]){
-				dis[v]=dis[u]+w;
-				st.insert({dis[v],v});
+			ll cw=p.first;
+			if(!vis[v]){
+				st.insert({cw,v});
 			}
 		}
 	}
+    return ans;
 }
 
 
 int main() {
 	cin>>n>>m;
 	inputGraph();
-	ll src,des; cin>>src>>des;
-	dijikstra(src);
-	if(dis[des]==1e18){
-		cout<<"NO"<<endl;
-	}else{
-		cout<<dis[des]<<endl;
-	}
+	cout<<prims(1)<<endl;
     return 0;
 }
